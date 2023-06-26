@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 if (isset($_GET['error']) && $_GET['error'] == 1) {
-    echo '<span style="color: white;"> Campo username está vazio. Por favor, preencha o campo antes de prosseguir. </span>'; //não é possível adicionar id em span dentro de echo;
+    echo '<span style="color: red;"> O campo USERNAME está vazio. Por favor, preencher antes de prosseguir. </span>'; //não é possível adicionar id em span dentro de echo;
 }
 ?>
 
@@ -48,8 +48,8 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
         </div>
         <div id="loginbox">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                USERNAME: <input id="usernamebx" name="usernamebx" type="text" placeholder="USERNAME" ><br>
-                PASSWORD: <input id="passwordbx" name="pwdbx" type="password" placeholder="PASSWORD" ><br>
+                USERNAME: <input id="usernamebx" name="usernamebx" type="text" placeholder="USERNAME" ><br> <!-- ADICIONAR O REQUIRED-->
+                PASSWORD: <input id="passwordbx" name="pwdbx" type="password" placeholder="PASSWORD" ><br> <!-- ADICIONAR O REQUIRED-->
                 <button id="loginbtn" type="submit" value="loginbtn">LOG IN</button>
             </form>
         </div>
