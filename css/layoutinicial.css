@@ -1,0 +1,37 @@
+/*LISTA DE DIVISORES:
+loginbox; DIV DA CAIXA DE INFOS PARA LOGIN
+usernamebx; CAIXA DE USERNAME
+passwordbx; CAIXA DE SENHA
+loginbtn; BOTAO PARA LOGIN
+copyrightimg; CAIXA DE TEXTO COM COPYRIGHT DA LOGO.
+logo; CAIXA DE DIV DA LOGO;
+msgerro; MENSAGEM DE ERRO NO LOGIN;
+*/ 
+body{
+    background-image: linear-gradient(to left, aqua, purple);      
+}
+#allelem{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#loginbox{
+    border: 3px solid whitesmoke;
+    padding: 10px;
+    width: 300px;
+    color: white;
+}
+#copyrightimg{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    color: white;
+}
+#loginbtn{
+    color: white;
+    background-image: linear-gradient(to left, darkviolet, purple);      
+}
+#copyrightimg:visited{
+        color: black;
+}
