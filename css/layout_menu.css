@@ -32,11 +32,17 @@ body{
     cursor: pointer;
     color: whitesmoke
   }
-  
+
 #startbtn{
     background-image: linear-gradient(to top,aqua, purple);
 }
 #startbtn:hover{
+    background-image: linear-gradient(to bottom, aqua, purple);
+}
+#ldrbtn{
+    background-image: linear-gradient(to top,aqua, purple);
+}
+#ldrbtn:hover{
     background-image: linear-gradient(to bottom, aqua, purple);
 }
 #optbtn{

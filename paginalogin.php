@@ -1,34 +1,9 @@
 <?php
-session_start();
-
-function verifica_campo($username) {
-    $username = trim($username);
-    $username = stripslashes($username);
-    $username = htmlspecialchars($username);
-    return !empty($username); 
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['usernamebx'];
-
-    if ($username == '') {
-        header("Location: ".$_SERVER['PHP_SELF']."?error=1");
-        exit();
-    } else {
-        if (verifica_campo($username)) {
-            $_SESSION['username'] = $username;
-            header("Location: menudojogo.php");
-            exit();
-        }
-    }
-}
+require_once "dados.php/initconect.php";
 ?>
 
-
 <?php
-if (isset($_GET['error']) && $_GET['error'] == 1) {
-    echo '<span style="color: red;"> O campo USERNAME está vazio. Por favor, preencher antes de prosseguir. </span>'; //não é possível adicionar id em span dentro de echo;
-}
+require_once "dados.php/requerimentlogin.php";
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +22,9 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
             <br/>
         </div>
         <div id="loginbox">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                USERNAME: <input id="usernamebx" name="usernamebx" type="text" placeholder="USERNAME" ><br> <!-- ADICIONAR O REQUIRED-->
-                PASSWORD: <input id="passwordbx" name="pwdbx" type="password" placeholder="PASSWORD" ><br> <!-- ADICIONAR O REQUIRED-->
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" onsubmit="return validateForm()">
+                USERNAME: <input id="usernamebx" name="usernamebx" type="text" placeholder="USERNAME" required><br>
+                PASSWORD: <input id="passwordbx" name="passwordbx" type="password" placeholder="PASSWORD" required><br>
                 <button id="loginbtn" type="submit" value="loginbtn">LOG IN</button>
             </form>
         </div>
