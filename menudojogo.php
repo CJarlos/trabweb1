@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
 </head>
 <body>
     <div id="menubox">
-        <form action="fillitupgame.php" method="POST">
+        <form action="fillitupgame.php" method="GET">
             <button class="button" id="startbtn">START</button><br>
         </form><br>
         <button class="button" id="ldrbtn">LEADERBOARD</button><br>
