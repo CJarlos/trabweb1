@@ -1,23 +1,25 @@
 <?php
 include "credentials.php";
+?>
 
-$conn = mysqli_connect($servername, $user, $password, $dbname); //pode usar outro argumento conectando direto a base de dados
+<?php
+$conn = mysqli_connect($servername, $user, $password); //pode usar outro argumento conectando direto a base de dados
 
 if ($conn->connect_error) {
     die("Erro na conexão com BD: " . $conn->connect_error);
 }
-$result = $conn->query("SHOW DATABASES LIKE '$dbname'");
+$result = $conn->query("SHOW DATABASES LIKE 'usertable'");
 
 if ($result->num_rows > 0) {
     
-    $conn->select_db($dbname);
+    $conn->select_db('usertable');
     
 } else {
 
-    $sql = "CREATE DATABASE $dbname";
+    $sql = "CREATE DATABASE usertable";
     
     if ($conn->query($sql) === TRUE) {
-        echo "BD criado";
+        echo "DB criado com sucesso.";
     } else {
         echo "Erro na criação do BD: " . $conn->error;
     }

@@ -27,6 +27,7 @@ if ($result->num_rows > 0) {
 <?php
 session_start();
 
+$tableName = "userdata";
 function verifica_campo($campo, $tableName) {
     global $conn;
     $campo = trim($campo);

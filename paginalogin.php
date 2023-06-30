@@ -1,9 +1,9 @@
 <?php
-require_once "dados.php/initconect.php";
+require_once "dados/initconect.php";
 ?>
 
 <?php
-require_once "dados.php/requerimentlogin.php";
+require_once "dados/requerimentlogin.php";
 ?>
 
 <!DOCTYPE html>

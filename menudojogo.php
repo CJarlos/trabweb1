@@ -1,5 +1,5 @@
 <?php
-require "dados.php/datamenu.php";
+require "dados/datamenu.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     session_unset();
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
 </head>
 <body>
     <div id="menubox">
-        <form action="fillitupgame.php" method="GET">
+        <form action="fillitupgame.php" method="POST">
             <button class="button" id="startbtn">START</button><br>
         </form><br>
         <button class="button" id="ldrbtn">LEADERBOARD</button><br>

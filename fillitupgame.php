@@ -15,7 +15,7 @@
         <h1 id="scorebox"> SCORE: </h1>
         <h1 id="wordsdisplay"></h1>
         <div id="typingbox">
-            <form id="scoreform" method="post" action="dados.php/scoretable.php">
+            <form id="scoreform" method="post" action="score_table.php">
                 <textarea id="inputtext"></textarea>
                 <input type="submit" id="submitButton" value="Enviar Pontuação" style="display: none;">
             </form>
