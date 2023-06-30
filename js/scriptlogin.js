@@ -7,5 +7,3 @@ function validarForm() {
         return false;
     }
 }
-
-login.btn()

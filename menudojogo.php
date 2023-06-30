@@ -1,9 +1,13 @@
 <?php
-require_once "dados.php/datamenu.php";
-?>
+require "dados.php/datamenu.php";
 
-<?php
-require "dados.php/insert.php"
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+
+    header("Location: paginalogin.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +20,16 @@ require "dados.php/insert.php"
 </head>
 <body>
     <div id="menubox">
-        <button class="button" id="startbtn">START</button><br>
+        <form action="fillitupgame.php" method="POST">
+            <button class="button" id="startbtn">START</button><br>
+        </form><br>
         <button class="button" id="ldrbtn">LEADERBOARD</button><br>
         <button class="button" id="optbtn">OPTIONS</button><br>
         <button class="button" id="crdbtn">CREDITS</button><br>
-        <button class="button" id="qtbtn">QUIT SESSION</button><br>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <button class="button" id="qtbtn" name="logout">QUIT SESSION</button><br>
+        </form>
     </div>
-  <!--  <div id="area de teste">
-        <?php echo $username; ?> <br>
-        <?php echo $password; ?> 
-    </div> -->
     <script src="js/scriptmenudojogo.js"></script>
 </body>
 </html>

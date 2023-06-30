@@ -22,16 +22,7 @@ body{
     width: 300px;
     color: white;
 }
-#copyrightimg{
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    color: white;
-}
 #loginbtn{
     color: white;
     background-image: linear-gradient(to left, darkviolet, purple);      
-}
-#copyrightimg:visited{
-        color: black;
 }

@@ -1,0 +1,54 @@
+/*LISTA DE DIVISORES:
+gamelogo; DIV DA LOGO
+scorebox; DIV DA CAIXA DE PONTUAÇÃO
+typingbox; DIV DA CAIXA DE DIGITAÇÃO
+crdslogo; DIV DA CAIXA DE CRÉDITOS
+*/
+body {
+    background-image: linear-gradient(to left, rgb(132, 0, 255), purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+#overbox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+#gamelogo{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 244px; 
+    height: 59px;
+}
+#wordsdisplay{
+    color: white;
+    background-color: rgb(179, 0, 179);
+    border: 1px solid violet;
+    width: 480px;
+    max-width: 480px;
+    text-align: center;
+    padding: 10px;
+}
+#inputtext{
+    box-sizing: border-box;
+    width: 500px; 
+    height: 200px;
+    resize: none;
+    border: 2px solid violet;
+    outline: none;
+    padding: 10px; 
+    font-size: 14px;
+    background-color: purple;
+    color: whitesmoke;
+}
+#crdslogo{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

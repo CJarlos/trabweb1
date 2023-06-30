@@ -22,7 +22,7 @@ require_once "dados.php/requerimentlogin.php";
             <br/>
         </div>
         <div id="loginbox">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" onsubmit="return validateForm()">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" onsubmit="return validarForm()">
                 USERNAME: <input id="usernamebx" name="usernamebx" type="text" placeholder="USERNAME" required><br>
                 PASSWORD: <input id="passwordbx" name="passwordbx" type="password" placeholder="PASSWORD" required><br>
                 <button id="loginbtn" type="submit" value="loginbtn">LOG IN</button>
