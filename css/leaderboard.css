@@ -1,0 +1,55 @@
+/* LISTA DE DIV EXISTENTES NO ARQUIVO:
+lbTop - 'TITULO'
+scoreTable - TABELA DE PONTUAÇÃO
+
+*/
+body {
+    text-align: center;
+    position: relative;
+    background-image: linear-gradient(to right,purple, aqua);
+}
+
+#lbTop{
+    color: white;
+}
+
+#containerscore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }  
+
+#scoreboard {
+    text-align: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    color: white;
+    margin: 0;
+    border: 3px solid white;
+    border-collapse: collapse;
+}
+
+#scoreboard th {
+        color: white; 
+        border: 1px solid white; 
+        padding: 8px;
+}
+
+#scoreboard td {
+  color: white; 
+  border: 1px solid white; 
+  padding: 8px;
+}
+
+.button {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: whitesmoke;
+    background-image: linear-gradient(to left, darkviolet, purple); 
+  }

@@ -6,6 +6,7 @@ $result = $conn->query("SHOW TABLES LIKE '$tableName'");
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
+    $_SERVER['PHP_SELF'];
     
 } else {
     $sql = "CREATE TABLE $tableName (
@@ -17,17 +18,11 @@ if ($result->num_rows > 0) {
 
     if ($conn->query($sql) === FALSE) {
         echo "Erro ao criar a tabela: " . $conn->error;
-    } else {
-        header("Location: menudojogo.php");
-        exit();
     }
 }
-?>
 
-<?php
 session_start();
 
-$tableName = "userdata";
 function verifica_campo($campo, $tableName) {
     global $conn;
     $campo = trim($campo);
@@ -54,10 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $insertSql = "INSERT INTO $tableName (username, userpassword) VALUES ('$username', '$password')";
 
                 if ($conn->query($insertSql) === TRUE) {
+                    $row = $result->fetch_assoc();
                     header("Location: menudojogo.php");
                     exit();
                 } else { 
-                    echo "Erro ao inserir dados: " . $conn->error;
+                    echo "Erro: " . $conn->error;
                 }
             } else {
                 $row = $result->fetch_assoc();
@@ -65,17 +61,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             }
         } else {
-            echo "Erro ao inserir dados: A tabela '$tableName' não existe.";
+            echo "Erro: '$tableName' não foi criada.";
         }
     } else {
         header("Location: ".$_SERVER['PHP_SELF']."?error=1");
         exit();
     }    
 }
-?>
 
-<?php
-if (isset($_GET['error']) && $_GET['error'] == 1) {
-    echo '<span style="color: red;"> O campo USERNAME e/ou PASSWORD está vazio. Por favor, preencha ambos antes de prosseguir. </span>';
+    if (isset($_GET['error']) && $_GET['error'] == 1) {
+        echo '<span style="color: red;"> O campo USERNAME e/ou PASSWORD está vazio. Por favor, preencha ambos antes de prosseguir. </span>';
 }
 ?>

@@ -1,6 +1,9 @@
 <?php
 require "dados/datamenu.php";
+?>
 
+
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     session_unset();
     session_destroy();
@@ -26,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
         <button class="button" id="ldrbtn">LEADERBOARD</button><br>
         <button class="button" id="optbtn">OPTIONS</button><br>
         <button class="button" id="crdbtn">CREDITS</button><br>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form action="paginalogin.php" method="POST">
             <button class="button" id="qtbtn" name="logout">QUIT SESSION</button><br>
         </form>
     </div>

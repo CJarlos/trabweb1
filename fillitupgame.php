@@ -1,3 +1,7 @@
+<?php
+require 'dados/credentials.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +16,19 @@
     </div>
     <div id="overbox">
         <div id="timer">00:00:00</div>
-        <h1 id="scorebox"> SCORE: </h1>
+        <h1 id="scorebox" name="scorebox"> SCORE: </h1>
         <h1 id="wordsdisplay"></h1>
         <div id="typingbox">
-            <form id="scoreform" method="post" action="score_table.php">
+            <form id="scoreform" method="POST" action="leaderboard.php">
                 <textarea id="inputtext"></textarea>
-                <input type="submit" id="submitButton" value="Enviar Pontuação" style="display: none;">
+                <input type="hidden" name="pontuacao" id="pontuacao" value="">
+                <input type="button" id="submitButton" value="Enviar Pontuação" style="display: none;">
             </form>
         </div>
     </div>
     <div id="crdslogo">
         @Image by <a href="https://pt.cooltext.com">Cool Text: Logo and Button Generator</a> - <a href="https://pt.cooltext.com/Edit-Logo?LogoID=4376996491">Create Your Own Logo</a>
     </div>
-
     <script>
         window.addEventListener('DOMContentLoaded', function() {
             var matrizFrases = [
@@ -56,8 +60,6 @@
             strTimer();
         });
 
-        var pont;
-
         function comparaStr() {
             var palavras = document.getElementById('inputtext');
             var scoreBox = document.getElementById('scorebox');
@@ -72,12 +74,13 @@
                 }
             }
 
-            pont = contador * 60;
-            scoreBox.textContent = "Score: " + pont;
+            var pontuacao = contador * 60;
+            scoreBox.textContent = "Score: " + pontuacao;
             palavras.setAttribute("readonly", "readonly");
 
             var submitButton = document.getElementById("submitButton");
-            submitButton.style.display = "block"; // Torna o botão visível
+            submitButton.style.display = "block";
+            document.getElementById("pontuacao").value = pontuacao;
         }
 
         function strTimer() {
@@ -114,6 +117,14 @@
         function formatTime(time) {
             return time < 10 ? "0" + time : time.toString();
         }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById("scoreform").submit();
+            });
+        });
     </script>
 </body>
 </html>

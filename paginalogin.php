@@ -1,9 +1,36 @@
 <?php
+session_start();
 require_once "dados/initconect.php";
-?>
+require "dados/requerimentlogin.php";
 
-<?php
-require_once "dados/requerimentlogin.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['usernamebx'];
+    $password = $_POST['passwordbx'];
+
+    if (!empty($username) && !empty($password)) {
+        $result = $conn->query("SELECT * FROM userdata WHERE username = '$username'");
+
+        if ($result->num_rows == 0) {
+            $insertSql = "INSERT INTO userdata (username, userpassword) VALUES ('$username', '$password')";
+            if ($conn->query($insertSql) === TRUE) {
+                $_SESSION['idUsuario'] = $conn->insert_id;
+
+                header("Location: menudojogo.php");
+                exit();
+            } else {
+                echo "Erro ao inserir usuário no banco de dados: " . $conn->error;
+            }
+        } else {
+            $row = $result->fetch_assoc();
+            $_SESSION['idUsuario'] = $row['idUsuario'];
+
+            header("Location: menudojogo.php");
+            exit();
+        }
+    } else {
+        echo "Por favor, preencha TODOS os campos.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
