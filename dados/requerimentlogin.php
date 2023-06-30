@@ -21,8 +21,6 @@ if ($result->num_rows > 0) {
     }
 }
 
-session_start();
-
 function verifica_campo($campo, $tableName) {
     global $conn;
     $campo = trim($campo);
