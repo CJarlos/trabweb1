@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
         <form action="fillitupgame.php" method="POST">
             <button class="button" id="startbtn">START</button><br>
         </form><br>
-        <button class="button" id="ldrbtn">LEADERBOARD</button><br>
+        <button class="button" id="ldrbtn" onclick="window.location.href = 'leaderboard.php';">LEADERBOARD</button>
+        <br>
         <button class="button" id="optbtn">OPTIONS</button><br>
         <button class="button" id="crdbtn">CREDITS</button><br>
         <form action="paginalogin.php" method="POST">

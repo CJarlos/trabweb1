@@ -15,8 +15,8 @@ require 'dados/credentials.php';
         <a href="https://pt.cooltext.com"><img src="https://images.cooltext.com/5661287.png" alt="Fill it Up" /></a>
     </div>
     <div id="overbox">
-        <div id="timer">00:00:00</div>
-        <h1 id="scorebox" name="scorebox"> SCORE: </h1>
+        <div id="timer" style="color:white;">00:00:00</div>
+        <h1 id="scorebox" name="scorebox" style="color:white;"> SCORE: </h1>
         <h1 id="wordsdisplay"></h1>
         <div id="typingbox">
             <form id="scoreform" method="POST" action="leaderboard.php">
@@ -25,9 +25,6 @@ require 'dados/credentials.php';
                 <input type="button" id="submitButton" value="Enviar Pontuação" style="display: none;">
             </form>
         </div>
-    </div>
-    <div id="crdslogo">
-        @Image by <a href="https://pt.cooltext.com">Cool Text: Logo and Button Generator</a> - <a href="https://pt.cooltext.com/Edit-Logo?LogoID=4376996491">Create Your Own Logo</a>
     </div>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
@@ -86,7 +83,7 @@ require 'dados/credentials.php';
         function strTimer() {
             var timer = document.getElementById("timer");
             var timerInic = Date.now();
-            var tempInic = 5;
+            var tempInic = 30;
             var intervaloTimer;
 
             attTimer();
